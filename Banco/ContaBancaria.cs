@@ -1,27 +1,30 @@
-﻿abstract class ContaBancaria
+abstract class ContaBancaria
 {
-    public string Holder { get; protected set; }
-    public decimal Balance { get; protected set; }
+    public int NumeroConta { get; protected set; }
+    public string Titular { get; protected set; }
+    public decimal Saldo { get; protected set; }
 
-    protected ContaBancaria(string holder, decimal balance)
+    protected ContaBancaria(int numeroConta, string titular, decimal saldo)
     {
-        Holder = holder;
-        Balance = balance;
+        NumeroConta = numeroConta;
+        Titular = titular;
+        Saldo = saldo;
     }
 
     public void ShowInfo()
     {
         Console.WriteLine("\n------------------- Informações da Conta -------------------");
-        Console.WriteLine($"Titular: {Holder}");
-        Console.WriteLine($"Saldo atual: R$ {Balance:F2}");
+        Console.WriteLine($"Número da Conta: {NumeroConta}");
+        Console.WriteLine($"Titular: {Titular}");
+        Console.WriteLine($"Saldo atual: R$ {Saldo:F2}");
     }
 
     public virtual bool Sacar(decimal valor)
     {
-        if (valor <= 0 || valor > Balance)
+        if (valor <= 0 || valor > Saldo)
             return false;
 
-        Balance -= valor;
+        Saldo -= valor;
         return true;
     }
 
@@ -30,7 +33,7 @@
         if (valor <= 0)
             return false;
 
-        Balance += valor;
+        Saldo += valor;
         return true;
     }
 }
