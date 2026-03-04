@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+﻿ContaCorrente contaCorrente = new ContaCorrente(1, "Cleiton", 20000);
+ContaPoupanca contaPoupanca = new ContaPoupanca(2, "João Pedro", 15000);
+ContaEmpresarial contaEmpresarial = new ContaEmpresarial(3, "Caio Henrique", 15000);
+=======
 ContaCorrente contaCorrente = new ContaCorrente("Cleiton", 20000);
 ContaPoupanca contaPoupanca = new ContaPoupanca("João Pedro", 15000);
 ContaEmpresarial contaEmpresarial = new ContaEmpresarial("Caio Henrique", 15000);
+>>>>>>> 29208596ce5fd3a87ee41bef11fe1605237d9282
 
 void MenuPrincipal()
 {
@@ -188,10 +194,10 @@ void MenuContaEmpresarial()
 
         Console.WriteLine("\n1 - Sacar");
         Console.WriteLine("2 - Depositar");
-        Console.WriteLine("3 - Ver Saldo");
-        Console.WriteLine("4 - Voltar");
-        Console.WriteLine("5 - Sair");
-        Console.Write("\nEscolha: ");
+        Console.WriteLine("3 - Fazer Empréstimo");
+        Console.WriteLine("4 - Ver Saldo");
+        Console.WriteLine("5 - Voltar");
+        Console.WriteLine("6 - Sair");
 
         if (!int.TryParse(Console.ReadLine(), out int opcao))
             continue;
@@ -219,18 +225,25 @@ void MenuContaEmpresarial()
                         Console.WriteLine("Valor inválido.");
                 }
                 break;
-
             case 3:
-                contaEmpresarial.ShowInfo();
+                Console.Write("Valor do empréstimo: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal valorEmprestimo))
+                {
+                    if (contaEmpresarial.FazerEmprestimo(valorEmprestimo))
+                        Console.WriteLine("Empréstimo aprovado!");
+                    else
+                        Console.WriteLine("Valor inválido ou acima do limite.");
+                }
                 break;
-
             case 4:
+                contaCorrente.ShowInfo();
                 return;
 
             case 5:
+                return;
+            case 6:
                 Environment.Exit(0);
                 break;
-
             default:
                 Console.WriteLine("Opção inválida.");
                 break;
