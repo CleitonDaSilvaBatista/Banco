@@ -1,7 +1,7 @@
-﻿class ContaPoupanca : ContaBancaria
+class ContaPoupanca : ContaBancaria
 {
-    public ContaPoupanca(string holder, decimal balance)
-        : base(holder, balance)
+    public ContaPoupanca(int numeroConta, string titular, decimal saldo)
+        : base(numeroConta, titular, saldo)
     {
     }
 
@@ -10,6 +10,6 @@
         if (percentual <= 0)
             return;
 
-        Balance += Balance * percentual / 100;
+        Saldo += Saldo * percentual / 100;
     }
 }
