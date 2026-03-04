@@ -1,9 +1,9 @@
-﻿class ContaCorrente : ContaBancaria
+class ContaCorrente : ContaBancaria
 {
     private const decimal TaxaSaque = 5m;
 
-    public ContaCorrente(string holder, decimal balance)
-        : base(holder, balance)
+    public ContaCorrente(int numeroConta, string titular, decimal saldo)
+        : base(numeroConta, titular, saldo)
     {
     }
 
@@ -11,10 +11,10 @@
     {
         decimal valorTotal = valor + TaxaSaque;
 
-        if (valor <= 0 || valorTotal > Balance)
+        if (valor <= 0 || valorTotal > Saldo)
             return false;
 
-        Balance -= valorTotal;
+        Saldo -= valorTotal;
         return true;
     }
 }
