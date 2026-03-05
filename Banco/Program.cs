@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 ﻿ContaCorrente contaCorrente = new ContaCorrente(1, "Cleiton", 20000);
 ContaPoupanca contaPoupanca = new ContaPoupanca(2, "João Pedro", 15000);
 ContaEmpresarial contaEmpresarial = new ContaEmpresarial(3, "Caio Henrique", 15000);
-=======
-ContaCorrente contaCorrente = new ContaCorrente("Cleiton", 20000);
-ContaPoupanca contaPoupanca = new ContaPoupanca("João Pedro", 15000);
-ContaEmpresarial contaEmpresarial = new ContaEmpresarial("Caio Henrique", 15000);
->>>>>>> 29208596ce5fd3a87ee41bef11fe1605237d9282
 
 void MenuPrincipal()
 {
