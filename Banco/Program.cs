@@ -52,6 +52,7 @@ void MenuContaCorrente()
     {
         Console.Clear();
         contaCorrente.ShowInfo();
+        Console.WriteLine($"Taxa de saque: R$ {ContaCorrente.TaxaSaque:F2}");
 
         Console.WriteLine("\n1 - Sacar");
         Console.WriteLine("2 - Depositar");
@@ -74,6 +75,7 @@ void MenuContaCorrente()
                     else
                         Console.WriteLine("Operação não permitida.");
                 }
+                presstoback();
                 break;
 
             case 2:
@@ -85,10 +87,12 @@ void MenuContaCorrente()
                     else
                         Console.WriteLine("Valor inválido.");
                 }
+                presstoback();
                 break;
 
             case 3:
                 contaCorrente.ShowInfo();
+                presstoback();
                 break;
 
             case 4:
@@ -100,6 +104,7 @@ void MenuContaCorrente()
 
             default:
                 Console.WriteLine("Opção inválida.");
+                presstoback();
                 break;
         }
 
@@ -136,6 +141,7 @@ void MenuContaPoupanca()
                     else
                         Console.WriteLine("Operação não permitida.");
                 }
+                presstoback();
                 break;
 
             case 2:
@@ -147,6 +153,7 @@ void MenuContaPoupanca()
                     else
                         Console.WriteLine("Valor inválido.");
                 }
+                presstoback();
                 break;
 
             case 3:
@@ -156,10 +163,12 @@ void MenuContaPoupanca()
                     contaPoupanca.AplicarRendimento(percentual);
                     Console.WriteLine("Rendimento aplicado!");
                 }
+                presstoback();
                 break;
 
             case 4:
                 contaPoupanca.ShowInfo();
+                presstoback();
                 break;
 
             case 5:
@@ -171,6 +180,7 @@ void MenuContaPoupanca()
 
             default:
                 Console.WriteLine("Opção inválida.");
+                presstoback();
                 break;
         }
 
@@ -192,6 +202,7 @@ void MenuContaEmpresarial()
         Console.WriteLine("4 - Ver Saldo");
         Console.WriteLine("5 - Voltar");
         Console.WriteLine("6 - Sair");
+        Console.Write("\nEscolha: ");
 
         if (!int.TryParse(Console.ReadLine(), out int opcao))
             continue;
@@ -207,6 +218,7 @@ void MenuContaEmpresarial()
                     else
                         Console.WriteLine("Operação não permitida.");
                 }
+                presstoback();
                 break;
 
             case 2:
@@ -218,6 +230,7 @@ void MenuContaEmpresarial()
                     else
                         Console.WriteLine("Valor inválido.");
                 }
+                presstoback();
                 break;
             case 3:
                 Console.Write("Valor do empréstimo: ");
@@ -228,10 +241,12 @@ void MenuContaEmpresarial()
                     else
                         Console.WriteLine("Valor inválido ou acima do limite.");
                 }
+                presstoback();
                 break;
             case 4:
-                contaCorrente.ShowInfo();
-                return;
+                contaEmpresarial.ShowInfo();
+                presstoback();
+                break;
 
             case 5:
                 return;
@@ -240,11 +255,18 @@ void MenuContaEmpresarial()
                 break;
             default:
                 Console.WriteLine("Opção inválida.");
+                presstoback();
                 break;
         }
 
         Console.ReadKey();
     }
+}
+
+void presstoback()
+{
+        Console.WriteLine("\nPressione qualquer tecla para voltar...");
+        Console.ReadKey();
 }
 
 MenuPrincipal();
